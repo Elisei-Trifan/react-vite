@@ -1,8 +1,8 @@
 .button {
   padding: 0.8rem 1rem;
   margin: 10px;
-  width: 100px;
-  height: 40px;
+  width: 200px;
+  height: 80px;
   border: none;
   border-radius: 5px;
   transition: all 0.15s ease;
@@ -14,5 +14,10 @@
 
 .button:active {
   background: red;
+  color: antiquewhite;
+}
+
+.active {
+  background: rgb(79, 166, 45);
   color: antiquewhite;
 }

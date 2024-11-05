@@ -1,9 +1,16 @@
 import Header from './components/Header'
 import WayToTech from './components/WayToTech'
 import Button from './components/Button/Button'
-import { ways } from '/src/data.js'
+import { useState } from 'react'
+import { ways, differences } from '/src/data.js'
 
 function App() {
+  const [contentType, setContentType] = useState(null)
+
+  function handleClick(type = ' ') {
+    setContentType(type)
+  }
+
   return (
     <div>
       <Header />
@@ -17,8 +24,29 @@ function App() {
         </section>
         <section>
           <h3>Отличия от других</h3>
-          <Button text="button 1" />
-          <Button text="button 2" />
+          <Button
+            active="active"
+            onClick={() => handleClick('way')}
+            text="button 1"
+            title="Кнопка 1"
+          >
+            Подход
+          </Button>
+          <Button onClick={() => handleClick('easy')} text="" title="Кнопка 2">
+            Доступность
+          </Button>
+          <Button
+            onClick={() => handleClick('program')}
+            text="button 3"
+            title=""
+          >
+            Концентрация
+          </Button>
+          {contentType ? (
+            <p>{differences[contentType]}</p>
+          ) : (
+            <div>Нажми кнопку</div>
+          )}
         </section>
       </main>
     </div>

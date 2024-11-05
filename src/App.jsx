@@ -1,20 +1,7 @@
 import Header from './components/Header'
-
-function WayToTech() {
-  return (
-    <li>
-      <p>
-        <strong>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, quam.
-        </strong>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-        repellendus est possimus voluptatum voluptatibus deleniti cumque natus
-        atque, temporibus doloremque quo vel, eveniet consequatur omnis aperiam
-        impedit. Dicta, aspernatur modi!
-      </p>
-    </li>
-  )
-}
+import WayToTech from './components/WayToTech'
+import Button from './components/Button/Button'
+import { ways } from '/src/data.js'
 
 function App() {
   return (
@@ -23,9 +10,15 @@ function App() {
       <main>
         <section>
           <h3>Наш подход к обучению</h3>
-          <WayToTech />
-          <WayToTech />
-          <WayToTech />
+          <WayToTech title={ways[0].title} description={ways[0].description} />
+          <WayToTech {...ways[1]} />
+          <WayToTech {...ways[2]} />
+          <WayToTech {...ways[3]} />
+        </section>
+        <section>
+          <h3>Отличия от других</h3>
+          <Button text="button 1" />
+          <Button text="button 2" />
         </section>
       </main>
     </div>

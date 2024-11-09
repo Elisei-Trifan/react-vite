@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import Header from './components/Header'
 import WayToTech from './components/WayToTech'
 import Button from './components/Button/Button'
@@ -17,10 +18,13 @@ function App() {
       <main>
         <section>
           <h3>Наш подход к обучению</h3>
-          <WayToTech title={ways[0].title} description={ways[0].description} />
+          {ways.map((item) => (
+            <WayToTech key={item.title} {...item} />
+          ))}
+          {/* <WayToTech title={ways[0].title} description={ways[0].description} />
           <WayToTech {...ways[1]} />
           <WayToTech {...ways[2]} />
-          <WayToTech {...ways[3]} />
+          <WayToTech {...ways[3]} /> */}
         </section>
         <section>
           <h3>Отличия от других</h3>

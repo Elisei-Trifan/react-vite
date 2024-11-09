@@ -10,7 +10,7 @@ export default function SectionButton() {
   }
   return (
     <section>
-      <h3>Отличия от других</h3>
+      <h3>Отличия от других:</h3>
       <Button
         active={contentType === 'way'}
         onClick={() => handleClick('way')}

@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-key */
 import Header from './components/Header'
-import WayToTech from './components/WayToTech'
+
 import Button from './components/Button/Button'
 import { useState } from 'react'
-import { ways, differences } from '/src/data.js'
+import { differences } from '/src/data.js'
 
 function App() {
   const [contentType, setContentType] = useState(null)
@@ -16,16 +16,6 @@ function App() {
     <div>
       <Header />
       <main>
-        <section>
-          <h3>Наш подход к обучению</h3>
-          {ways.map((item) => (
-            <WayToTech key={item.title} {...item} />
-          ))}
-          {/* <WayToTech title={ways[0].title} description={ways[0].description} />
-          <WayToTech {...ways[1]} />
-          <WayToTech {...ways[2]} />
-          <WayToTech {...ways[3]} /> */}
-        </section>
         <section>
           <h3>Отличия от других</h3>
           <Button

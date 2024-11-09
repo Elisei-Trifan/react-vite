@@ -3,7 +3,13 @@
 import { act } from 'react'
 import './button.css'
 
-export default function Button({ text, active, children, title, onClick }) {
+export default function Button({
+  text = ' ',
+  active,
+  children,
+  title = ' ',
+  onClick,
+}) {
   return (
     <button
       className={active ? 'button active' : 'button'}

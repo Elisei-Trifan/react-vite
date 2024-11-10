@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import logo from '/vite.svg'
 
+import './header.css'
+
 function Header() {
   const [now, setNow] = useState(new Date())
 

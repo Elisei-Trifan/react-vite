@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { act } from 'react'
-import './button.css'
+import classes from './button.module.css'
 
 export default function Button({
   text = ' ',
@@ -12,7 +11,9 @@ export default function Button({
 }) {
   return (
     <button
-      className={active ? 'button active' : 'button'}
+      className={
+        active ? `${classes.button} ${classes.active}` : classes.button
+      }
       onClick={onClick}
     >{`${children} ${text} ${title}`}</button>
   )

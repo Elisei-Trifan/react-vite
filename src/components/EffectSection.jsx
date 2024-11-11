@@ -2,8 +2,10 @@
 import { useEffect, useState } from 'react'
 import Button from './Button/Button'
 import Modal from './Modal/Modal'
+import useInput from './hooks/useInput.js'
 
 export default function EffectSection() {
+  const input = useInput()
   const [modal, setModal] = useState(false)
   const [loading, setLoading] = useState(false)
   const [users, setUsers] = useState([])
@@ -43,11 +45,18 @@ export default function EffectSection() {
 
       {loading && <p>Loading...</p>}
       {!loading && (
-        <select>
-          {users.map((item) => (
-            <option key={item.id}>{item.name}</option>
-          ))}
-        </select>
+        <>
+          <input type="text" className="control" {...input}></input>
+          <select className="control">
+            {users
+              .filter((item) =>
+                item.name.toLowerCase().includes(input.value.toLowerCase())
+              )
+              .map((item) => (
+                <option key={item.id}>{item.name}</option>
+              ))}
+          </select>
+        </>
       )}
     </section>
   )

@@ -14,7 +14,7 @@ export default function TabsSection({ active, onChange }) {
         Обратная связь
       </Button>
       <Button active={active === 'effect'} onClick={() => onChange('effect')}>
-        Обратная связь
+        Информация
       </Button>
     </section>
   )

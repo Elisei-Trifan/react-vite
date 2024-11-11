@@ -8,15 +8,15 @@ export default function EffectSection() {
   const [loading, setLoading] = useState(false)
   const [users, setUsers] = useState([])
 
-  async function fetchUsers() {
-    setLoading(true)
-    const response = await fetch('https://jsonplaceholder.typicode.com/users')
-    const usersServer = await response.json()
-    setUsers(usersServer)
-    setLoading(false)
-  }
-
   useEffect(() => {
+    async function fetchUsers() {
+      setLoading(true)
+      const response = await fetch('https://jsonplaceholder.typicode.com/users')
+      const usersServer = await response.json()
+      setUsers(usersServer)
+      setLoading(false)
+    }
+
     fetchUsers()
   }, [])
 
@@ -42,6 +42,21 @@ export default function EffectSection() {
       </Modal>
 
       {loading && <p>Loading...</p>}
+      {!loading && (
+        <select>
+          {users.map((item) => (
+            <option key={item.id}>{item.name}</option>
+          ))}
+        </select>
+      )}
     </section>
   )
+}
+
+{
+  /* <ul>
+          {users.map((item) => (
+            <li key={item.id}>{item.name}</li>
+          ))}
+        </ul> */
 }

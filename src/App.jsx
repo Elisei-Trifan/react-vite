@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react'
 import FeedbackSection from './components/FeedbackSection'
 import Header from './components/Header/Header'
@@ -8,10 +9,16 @@ import TabsSection from './components/TabsSection'
 import EffectSection from './components/EffectSection'
 
 function App() {
+  const [vis, setVis] = useState(true)
   const [tab, setTab] = useState('effect')
+
+  // setTimeout(() => {
+  //   setVis(false)
+  // }, 3000)
+
   return (
     <>
-      <Header />
+      {vis && <Header />}
       <main>
         <IntroSection />
         <TabsSection active={tab} onChange={(current) => setTab(current)} />

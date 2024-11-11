@@ -21,3 +21,7 @@
   background: rgb(79, 166, 45);
   color: antiquewhite;
 }
+
+.button:disabled {
+  cursor: not-allowed;
+}

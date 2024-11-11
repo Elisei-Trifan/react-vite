@@ -7,14 +7,14 @@ export default function Button({
   active,
   children,
   title = ' ',
-  onClick,
+  ...props
 }) {
   return (
     <button
+      {...props}
       className={
         active ? `${classes.button} ${classes.active}` : classes.button
       }
-      onClick={onClick}
     >{`${children} ${text} ${title}`}</button>
   )
 }
